@@ -1,57 +1,360 @@
-addEventListener('fetch', event => {
-    event.respondWith(handleRequest(event.request))
-   })
-    
-   /**
-   * Respond to the request
-   * @param {Request} request
-   */
-   async function handleRequest(request) {
-    
-   let modifiedHeaders = new Headers()
-    
-    modifiedHeaders.set('Content-Type', 'text/html')
-    modifiedHeaders.append('Pragma', 'no-cache')
-    
-    return new Response(maintenancepage, {headers: modifiedHeaders})
-   }
-   let maintenancepage = `
-    
-   <!doctype html>
-   <title>Site Maintenance</title>
-   <style>
-    body {
-          text-align: center;
-          padding: 150px;
-          background: url('https://raw.githubusercontent.com/gilbN/Nostromo/master/blog/Senja-death-star.jpg') no-repeat center center fixed;
-          background-size: cover;
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vulnerability Disclosure Policy</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
         }
-    
-      .content {
-          background-color: rgba(255, 255, 255, 0.75);
-          background-size: 100%;     
-          color: inherit;
-          padding: 1px 100px 10px 100px;
-          border-radius: 15px;       
-      }
-    
-    h1 { font-size: 40pt;}
-    body { font: 20px Helvetica, sans-serif; color: #333; }
-    article { display: block; text-align: left; width: 75%; margin: 0 auto; }
-    a:hover { color: #333; text-decoration: none; }
-   </style>
-    
-   <article>
-    <div class="background">
-      <div class="content">
-        <h1>We&rsquo;ll be right back!</h1>
-          <p>We're very sorry for the inconvenience but we&rsquo;re performing maintenance.</p>
-          <p>Please check back soon...</p>
-          <p>&mdash; <B>Trell</B></p>
-      </div>
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            padding-top: 30px !important;
+            margin-left: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p,
+        ul {
+            font-size: 14px;
+        }
+
+        ul {
+            margin-left: 0px;
+            padding-inline-start: 0px;
+        }
+
+       
+        h2,
+        p {
+            margin: auto 50px;
+            padding: 12.5px;
+        }
+
+        .space {
+            padding-bottom: 30px;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        a {
+            color: #ff534a;
+            cursor: pointer;
+        }
+
+        #links,
+        li {
+            margin: auto 10%;
+            line-height: 2;
+        }
+
+
+        hr {
+            border: solid #afa8ba;
+            border-width: 1px;
+            border-bottom: none;
+            width: 80%;
+
+            background-color: transparent !important;
+        }
+
+        .outer {
+            background-color: #fbe4e2;
+            width: 100%;
+        }
+
+        .container {
+            /* width: 75vw; */
+            margin: 0 auto;
+            background-color: #fffcfc;
+        }
+
+        img {
+           margin-top: 20px;
+           margin-left: 0px;
+           margin-right: 50px;
+           
+
+        }
+
+        .years {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .line {
+            height: 1px;
+            background-color: #afa8ba;
+            
+            display: block;
+            width: 85%;
+            margin:5px auto;
+        }
+
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            background: white;
+            padding: 0 10px;
+        }
+
+        @media (max-width:480px) {
+
+            h2,
+            p {
+                margin: 10px auto;
+            }
+      
+
+
+            /* .container{
+          width:90vw;
+      } */
+
+            .space {
+                margin-bottom: 0px;
+            }
+
+            h1 {
+                
+                font-size: 28px;
+                margin-right: 20px;
+            }
+
+            img{
+                width:15%;
+                margin-left: 15px;
+                margin-right: 0px;
+            }
+        }
+
+
+        .heading{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+        }
+        @media(min-width:576px) {
+            .container {
+                max-width: 720px;
+                margin: auto;
+
+            }
+        }
+
+        @media(min-width:992px) {
+            .container {
+                max-width: 960px;
+            }
+            img{
+                margin-right: 0px;
+                margin-left: 20px !important;
+            }
+        }
+
+        @media(min-width:1200px) {
+            .container {
+                max-width: 1140px;
+            }
+            img{
+                margin-right: 0px !important;
+                margin-left: 20px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="container">
+           
+            <div class="heading">
+            <img src="https://cdn.trell.co/images/orig/hwiuhdmr53tyjNkskQjFzXKk0vPePa3T.svg"> 
+            <h1>Trell Vulnerability Disclosure Policy</h1>
+            </div>
+            <h2>Introduction</h2>
+            <p>
+                Trell Experiences Pvt Limited welcomes feedback from security
+                researchers and the general public to help improve our security. If
+                you believe you have discovered a vulnerability, privacy issue,
+                exposed data, or other security issues in any of our assets, we want
+                to hear from you. This policy outlines steps for reporting
+                vulnerabilities to us, what we expect, what you can expect from us.
+            </p>
+            <hr />
+            <h2>Systems in Scope</h2>
+            <p>
+                This policy applies to any digital assets owned, operated, or
+                maintained by Trell and as follows:
+            </p>
+
+            <ul>
+                <li>Website - *.trell.co</li>
+                <li>
+                    Trell Android Application at -
+                    <u><a
+                            href="https://play.google.com/store/apps/details?id=app.trell">https://play.google.com/store/apps/details?id=app.trell</a></u>
+                </li>
+                <li>
+                    Trell iOS Application at -
+                    <u><a
+                            href="https://apps.apple.com/us/app/trell-food-and-travel-diary-blog-or-collections/id1241794239">https://apps.apple.com/us/app/trell-food-and-travel-diary-blog-or-collections/id1241794239</a></u>
+                </li>
+            </ul>
+
+            <hr />
+            <h2>Out of Scope</h2>
+            <p>
+                Assets or other equipment not owned by parties participating in this
+                policy. Vulnerabilities discovered or suspected in out-of-scope
+                systems should be reported to the appropriate vendor or applicable
+                authority.
+            </p>
+            <hr />
+            <h2>Our Commitments</h2>
+            <p>
+                When working with us, according to this policy, you can expect us to:
+            </p>
+
+
+            <ul>
+                <li>
+                    Respond to your report promptly, and work with you to understand
+                    and validate your report;
+                </li>
+                <li>
+                    Strive to keep you informed about the progress of a vulnerability
+                    as it is processed;
+                </li>
+                <li>
+                    Work to remediate discovered vulnerabilities in a timely manner,
+                    within our operational constraints
+                </li>
+            </ul>
+
+            <hr>
+            <h2>Our Expectations</h2>
+            <p>
+                In participating in our vulnerability disclosure program in good
+                faith, we ask that you:
+            </p>
+            <ul>
+                <li>
+                    Play by the rules, including following this policy and any other
+                    relevant agreements. If there is any inconsistency between this
+                    policy and any other applicable terms, the terms of this policy will
+                    prevail;
+                </li>
+                <li>Report any vulnerability you’ve discovered promptly;</li>
+                <li>
+                    Avoid violating the privacy of others, disrupting our systems,
+                    destroying data, and/or harming user experience;
+                </li>
+                <li>
+                    Use only the Official Channels to discuss vulnerability information
+                    with us;
+                </li>
+                <li>
+                    Provide us a reasonable amount of time (at least 10 Business Working
+                    Days or more from the initial report) to resolve the issue
+                </li>
+                <li>
+                    Please take explicit permission in written from us to disclose the
+                    bug publicly, once it is resolved from our end.
+                </li>
+                <li>
+                    Perform testing only on in-scope systems, and respect systems and
+                    activities which are out-of-scope;
+                </li>
+                <li>
+                    If a vulnerability provides unintended access to data:<u><b>Limit the amount of data you access to the
+                        minimum required for
+                        effectively demonstrating a Proof of Concept;</b></u>
+                    and cease testing and submit a report immediately if you encounter
+                    any user data during testing, such as Personally Identifiable
+                    Information (PII), credit card data, or proprietary information;
+                </li>
+                <li>
+                    You should only <u><b>interact with test accounts you own</b></u> or with
+                    explicit permission from the account holder; and
+                </li>
+                <li>Do not engage in extortion.</li>
+                <li>
+                    Bug’s like Clickjacking, No SPF Record, No DMARC Record, <b>Common Wordpress Bugs without any serious impact</b> etc will not
+                    be considered as a valid one.
+                </li>
+                <li> <b>DDOSing or running Automated Tools/Scans attacks against our Infrastructure is strictly out of Scope and prohibited</b>.
+            </ul>
+            <hr>
+            <h2>Official Channels</h2>
+            <p>
+                Please use <u><a href="mailto:security@trell.in">security@trell.in</a></u> and encrypt with <a href="https://trell.co/security/key.txt">
+                        this</a> (<u><a href="https://trell.co/security/key.txt">https://trell.co/security/key.txt </a></u></u>) PGP key to report security issues, providing all relevant information. The more details you provide, the easier it will be for
+                us to triage and fix the issue.
+            </p>
+            <p>If at any time you have concerns or are uncertain whether your security research is consistent with this
+                policy, please send an email to <u><a href="mailto:security@trell.in">security@trell.in</a></u> before
+                going any further.</p>
+
+            <hr>
+            <h2>Contributors – Trell Responsible Disclosure Program</h2>
+            <p>Trell would like to thank all individuals who have discovered and reported vulnerabilities in Trell
+                Applications as per the Responsible Disclosure program. We sincerely appreciate the efforts of each
+                individual listed below and we thank them for their technical skills, security knowledge, and
+                constructive engagement with Trell.</p>
+
+            <p class="years">
+                <span class="line">&nbsp;</span>
+                <strong class="title">2022</strong>
+            </p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/jilekmarek/">Marek Jílek</a></li>
+            </ul>
+
+            <p class="years">
+                <span class="line">&nbsp;</span>
+                <strong class="title">2021</strong>
+            </p>
+            <ul>
+                <li><a href="https://twitter.com/j3ssiejjj">Ai Ho</a></li>
+                <li><a href="https://www.linkedin.com/in/anurag-verma-650b771a2/">Anurag Verma</a></li>
+                <li><a href="https://www.linkedin.com/in/vishwas-reddy-30786a135/">Vishwas Reddy</a></li>
+                <li><a href="https://www.linkedin.com/in/manavbankatwala">Manav Bankatwala</a></li>
+            </ul>
+
+            <!--<p class="years">
+                <span class="line">&nbsp;</span>
+                <strong class="title">2020</strong>
+            </p>
+
+            
+
+            <ul>
+                <li><a>Name</a></li>
+                <li><a>Name</a></li>
+                <li><a>Name</a></li>
+            </ul>-->
+
+         
+            <p class="space">Last updated - 20/02/2022</p>
+        </div>
     </div>
-   </article>
-   `;   
+</body>
+
+</html>
